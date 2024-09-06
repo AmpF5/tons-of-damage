@@ -13,9 +13,9 @@ public class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
 
-        builder.Host.UseSerilog((context, configuration) => {
-            configuration.ReadFrom.Configuration(context.Configuration);
-        });
+        // builder.Host.UseSerilog((context, configuration) => {
+        //     configuration.ReadFrom.Configuration(context.Configuration);
+        // });
 
         var app = builder.Build();
 
@@ -25,7 +25,7 @@ public class Program
             app.UseSwaggerUI();
         }
 
-        app.UseSerilogRequestLogging();
+        // app.UseSerilogRequestLogging();
             
         app.UseHttpsRedirection();
 

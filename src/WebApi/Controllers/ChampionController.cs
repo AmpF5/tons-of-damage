@@ -1,3 +1,5 @@
+using Application.Dtos;
+using Domain;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
@@ -6,10 +8,10 @@ namespace WebApi.Controllers
     [ApiController]
     public class ChampionController : ControllerBase
     {
-        [HttpGet("{championId}")]
-        public float GetChampionDamage([FromRoute]int championId)
-        {
-            return 13.37f;
+        [HttpGet("damage")]
+        public double GetChampionDamage([FromQuery] ChampionDamageRequestDto championDamageRequestDto) {
+
+            return 13.37;
         }
     }
 }

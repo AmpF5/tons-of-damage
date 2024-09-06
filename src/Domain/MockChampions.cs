@@ -3,7 +3,7 @@ using Domain.Enums;
 
 namespace Domain;
 
-public static class MockChampion {
+public static class MockChampions {
     public static Champion Lux = new() {
         ChampionId = 1,
         Name = ChampionName.Lux,
@@ -25,7 +25,7 @@ public static class MockChampion {
         PerLevelMagicResistance = 1.3,
         PerLevelHealth = 99,
         PerLevelMana = 23.5,
-        Passive = null,
+        Passive = new Passive(),
         SkillQ = new Skill {
             SkillId = Guid.NewGuid(),
             Description = "Q LUX",
