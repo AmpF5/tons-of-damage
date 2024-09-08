@@ -1,5 +1,4 @@
 using Application.Dtos;
-using Domain;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
@@ -9,9 +8,9 @@ namespace WebApi.Controllers
     public class ChampionController : ControllerBase
     {
         [HttpGet("damage")]
-        public double GetChampionDamage([FromQuery] ChampionDamageRequestDto championDamageRequestDto) {
-
-            return 13.37;
+        public ActionResult<double> GetChampionDamage([FromQuery] ChampionDamageRequestDto championDamageRequestDto) {
+            
+            return Ok(13.37);
         }
     }
 }
