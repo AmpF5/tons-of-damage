@@ -1,6 +1,8 @@
 using Application.Common;
+using Domain.Interfaces;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Infrastructure.Services;
 
 namespace WebApi;
 
@@ -17,6 +19,8 @@ public class Program
         builder.Services.AddFluentValidationAutoValidation();
         builder.Services.AddValidatorsFromAssemblyContaining<IAssemblyMarker>();
 
+        builder.Services.AddScoped<IDamageCalculator, DamageCalculator>();
+
         // builder.Host.UseSerilog((context, configuration) => {
         //     configuration.ReadFrom.Configuration(context.Configuration);
         // });
@@ -30,11 +34,11 @@ public class Program
         }
 
         // app.UseSerilogRequestLogging();
-            
+
         app.UseHttpsRedirection();
 
         app.UseAuthorization();
-        
+
         app.MapControllers();
 
         app.Run();
